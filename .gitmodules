@@ -1,0 +1,4 @@
+[submodule "dependencies/zlib"]
+	path = dependencies/zlib
+	url = https://github.com/madler/zlib.git
+	branch-ref = v1.3.1.2

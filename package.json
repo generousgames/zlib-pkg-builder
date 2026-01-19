@@ -1,0 +1,13 @@
+{
+    "name": "@generousgames/zlib-pkg-builder",
+    "private": true,
+    "version": "0.0.1",
+    "devDependencies": {
+        "@generousgames/mimi-pkg": "0.0.10",
+        "dotenv-cli": "^11.0.0"
+    },
+    "scripts": {
+        "build": "mimi-pkg build zlib",
+        "build:dev": "npx --no-install mimi-pkg build zlib"
+    }
+}
