@@ -1,0 +1,37 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "macos-arm64-Release",
+      "generator": "Xcode",
+      "binaryDir": "${sourceDir}/projects/macos-arm64-Release",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "$env{BUILD_ARCH}",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "$env{BUILD_OSX_DEPLOYMENT_TARGET}",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/build/lib/Release",
+        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}"
+      }
+    },
+    {
+      "name": "macos-arm64-Debug",
+      "generator": "Xcode",
+      "binaryDir": "${sourceDir}/projects/macos-arm64-Debug",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "$env{BUILD_ARCH}",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "$env{BUILD_OSX_DEPLOYMENT_TARGET}",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/build/lib/Debug",
+        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "macos-arm64-Release",
+      "configurePreset": "macos-arm64-Release"
+    },
+    {
+      "name": "macos-arm64-Debug",
+      "configurePreset": "macos-arm64-Debug"
+    }
+  ]
+}

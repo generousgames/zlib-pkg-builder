@@ -1,0 +1,83 @@
+{
+    "name": "zlib",
+    "version": "1.3.1.2",
+    "license_files": [
+        "dependencies/zlib/LICENSE"
+    ],
+    "build_paths" : {
+        "bin_dir": "bin",
+        "lib_dir": "lib",
+        "include_dir": "include"
+    },
+    "configs": {
+        "macos-arm64-Release": {
+            "namespace": "deps",
+            "platform": {
+                "os": "macos",
+                "arch": "arm64",
+                "build_type": "Release"
+            },
+            "compiler": {
+                "c": "clang",
+                "cpp": "clang++"
+            },
+            "language": {
+                "c_std": "c17",
+                "cpp_std": "c++20",
+                "rtti": false,
+                "exceptions": false
+            },
+            "code_gen": {
+                "build_type": "Release",
+                "link_type": "Static",
+                "optimization": "-O3"
+            },
+            "runtime": {
+                "stdlib": "libc++",
+                "deployment_target": "12.0"
+            },
+            "output": [
+                {
+                    "name": "llvm",
+                    "path": "libllvm.a"
+                }
+            ]
+        },
+        "macos-arm64-Debug": {
+            "namespace": "deps",
+            "platform": {
+                "os": "macos",
+                "arch": "arm64",
+                "build_type": "Debug"
+            },
+            "compiler": {
+                "c": "clang",
+                "cpp": "clang++"
+            },
+            "language": {
+                "c_std": "c17",
+                "cpp_std": "c++20",
+                "rtti": false,
+                "exceptions": false
+            },
+            "code_gen": {
+                "build_type": "Debug",
+                "link_type": "Static",
+                "optimization": "-O0"
+            },
+            "runtime": {
+                "stdlib": "libc++",
+                "deployment_target": "12.0"
+            },
+            "output": [
+                {
+                    "name": "llvm",
+                    "path": "libllvm.a"
+                }
+            ]
+        }
+    },
+    "options": {
+        "BUILD_SHARED_LIBS": false
+    }
+}

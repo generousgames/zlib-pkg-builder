@@ -23,7 +23,19 @@ if [ "${1:-}" = "setup" ]; then
     rm -rf node_modules
     rm -rf dist
 
-    echo "2. Initializing submodules..."
+    EXPECTED_NODE_VERSION=$(cat .nvmrc)
+    NODE_VERSION=$(node --version)
+
+    echo "2. Checking Node.js version (${EXPECTED_NODE_VERSION})..."
+    if [ "$NODE_VERSION" != "$EXPECTED_NODE_VERSION" ]; then
+        echo "❌ Node.js version mismatch. Please use the correct version of Node.js ($EXPECTED_NODE_VERSION)."
+        exit 1
+    fi
+
+    echo "3. Installing package dependencies..."
+    npm install --silent
+
+    echo "4. Initializing submodules..."
     git submodule update --init --recursive
 
     BRANCH_NAME=$(git config -f .gitmodules submodule.dependencies/llvm.branch-ref)
@@ -34,17 +46,6 @@ if [ "${1:-}" = "setup" ]; then
         popd
     fi
 
-    EXPECTED_NODE_VERSION=$(cat .nvmrc)
-    NODE_VERSION=$(node --version)
-
-    echo "3. Checking Node.js version (${EXPECTED_NODE_VERSION})..."
-    if [ "$NODE_VERSION" != "$EXPECTED_NODE_VERSION" ]; then
-        echo "❌ Node.js version mismatch. Please use the correct version of Node.js ($EXPECTED_NODE_VERSION)."
-        exit 1
-    fi
-
-    echo "4. Installing package dependencies..."
-    npm install --silent
     exit 0
 fi
 
