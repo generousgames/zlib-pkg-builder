@@ -9,7 +9,10 @@
         "CMAKE_OSX_ARCHITECTURES": "$env{BUILD_ARCH}",
         "CMAKE_OSX_DEPLOYMENT_TARGET": "$env{BUILD_OSX_DEPLOYMENT_TARGET}",
         "CMAKE_INSTALL_PREFIX":"${sourceDir}/build/lib/Release",
-        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}"
+        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ZLIB_BUILD_STATIC": "ON",
+        "ZLIB_BUILD_SHARED": "OFF"
       }
     },
     {
@@ -20,7 +23,10 @@
         "CMAKE_OSX_ARCHITECTURES": "$env{BUILD_ARCH}",
         "CMAKE_OSX_DEPLOYMENT_TARGET": "$env{BUILD_OSX_DEPLOYMENT_TARGET}",
         "CMAKE_INSTALL_PREFIX":"${sourceDir}/build/lib/Debug",
-        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}"
+        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ZLIB_BUILD_STATIC": "ON",
+        "ZLIB_BUILD_SHARED": "OFF"
       }
     }
   ],

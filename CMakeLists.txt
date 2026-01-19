@@ -36,7 +36,7 @@ option(BUILD_SHARED_LIBS "Build shared libs" OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Where ZLIB source lives (submodule path). Allow override via -DZLIB_SOURCE_DIR=...
-set(ZLIB_SOURCE_DIR "${CMAKE_SOURCE_DIR}/dependencies/zlib/zlib" CACHE PATH "Path to ZLIB source")
+set(ZLIB_SOURCE_DIR "${CMAKE_SOURCE_DIR}/dependencies/zlib" CACHE PATH "Path to ZLIB source")
 
 # Nice error if submodule isn't checked out.
 if(NOT EXISTS "${ZLIB_SOURCE_DIR}/CMakeLists.txt")

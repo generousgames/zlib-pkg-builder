@@ -39,7 +39,7 @@
             "output": [
                 {
                     "name": "llvm",
-                    "path": "libllvm.a"
+                    "path": "libz.a"
                 }
             ]
         },
@@ -72,7 +72,7 @@
             "output": [
                 {
                     "name": "llvm",
-                    "path": "libllvm.a"
+                    "path": "libz.a"
                 }
             ]
         }
