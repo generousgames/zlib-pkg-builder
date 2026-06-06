@@ -31,8 +31,7 @@
     },
     {
       "name": "windows-x86_64-Release",
-      "generator": "Visual Studio 17 2022",
-      "architecture": "x64",
+      "generator": "Ninja Multi-Config",
       "binaryDir": "${sourceDir}/projects/windows-x86_64-Release",
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/lib/Release",
@@ -43,8 +42,7 @@
     },
     {
       "name": "windows-x86_64-Debug",
-      "generator": "Visual Studio 17 2022",
-      "architecture": "x64",
+      "generator": "Ninja Multi-Config",
       "binaryDir": "${sourceDir}/projects/windows-x86_64-Debug",
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/lib/Debug",
