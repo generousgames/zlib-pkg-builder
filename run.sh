@@ -142,6 +142,9 @@ if [ "${1:-}" = "setup" ]; then
         popd
     fi
 
+    echo "5. Preparing the MSVC build environment (Windows only)..."
+    ensure_msvc_env
+
     exit 0
 fi
 
