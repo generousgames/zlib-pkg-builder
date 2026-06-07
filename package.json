@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.1",
     "devDependencies": {
-        "@generousgames/mimi-pkg": "0.0.13",
+        "@generousgames/mimi-pkg": "0.0.14",
         "dotenv-cli": "^11.0.0"
     },
     "scripts": {
