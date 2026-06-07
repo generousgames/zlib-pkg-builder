@@ -134,13 +134,17 @@ if [ "${1:-}" = "setup" ]; then
     echo "4. Initializing submodules..."
     git submodule update --init --recursive
 
-    BRANCH_NAME=$(git config -f .gitmodules submodule.dependencies/zlib.branch-ref || true)
-    if [ ! -z "$BRANCH_NAME" ]; then
-        echo ">> Checking out branch ${BRANCH_NAME}..."
-        pushd dependencies/zlib
-            git checkout ${BRANCH_NAME}
-        popd
-    fi
+    # Check out the pinned ref for any submodule that declares `branch-ref` in
+    # .gitmodules (generic — derives name/path/ref, no hardcoded submodule name).
+    BRANCH_REF_KEYS=$(git config -f .gitmodules --name-only --get-regexp '\.branch-ref$' 2>/dev/null || true)
+    for KEY in ${BRANCH_REF_KEYS}; do
+        NAME=${KEY#submodule.}
+        NAME=${NAME%.branch-ref}
+        REF=$(git config -f .gitmodules --get "submodule.${NAME}.branch-ref")
+        SUBPATH=$(git config -f .gitmodules --get "submodule.${NAME}.path")
+        echo ">> Checking out ${SUBPATH} @ ${REF}..."
+        git -C "${SUBPATH}" checkout "${REF}"
+    done
 
     echo "5. Preparing the MSVC build environment (Windows only)..."
     ensure_msvc_env
