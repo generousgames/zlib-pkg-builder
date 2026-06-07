@@ -134,10 +134,10 @@ if [ "${1:-}" = "setup" ]; then
     echo "4. Initializing submodules..."
     git submodule update --init --recursive
 
-    BRANCH_NAME=$(git config -f .gitmodules submodule.dependencies/llvm.branch-ref)
+    BRANCH_NAME=$(git config -f .gitmodules submodule.dependencies/zlib.branch-ref || true)
     if [ ! -z "$BRANCH_NAME" ]; then
         echo ">> Checking out branch ${BRANCH_NAME}..."
-        pushd dependencies/llvm
+        pushd dependencies/zlib
             git checkout ${BRANCH_NAME}
         popd
     fi
